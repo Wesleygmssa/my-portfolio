@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+    swcMinify: true,
     compiler: {
         styledComponents: true,
-        ssr: true,
-        displayName: true,
         reactRemoveProperties: true,
+    },
+    experimental: {
+        serverComponents: true,
     },
 };
 
