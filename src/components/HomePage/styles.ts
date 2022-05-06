@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HomeContainer = styled.section`
     width: 100%;
-    padding: 12rem 0;
+    padding: 20rem 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,27 +86,19 @@ export const HomeContainer = styled.section`
         z-index: -1;
         content: "";
         position: absolute;
-        left: 17%;
-        top: 60%;
-        background-color: var(--purple);
-        width: 0.1rem;
-        height: 0.1rem;
-        filter: blur(1rem);
-        border-radius: 50%;
-        box-shadow: 0 0 25rem 10rem var(--purple);
-    }
-    &::before {
-        z-index: -1;
-        content: "";
-        position: absolute;
-        right: 17%;
-        top: 30%;
-        background-color: var(--blue);
-        width: 0.1rem;
-        height: 0.1rem;
-        filter: blur(1rem);
-        border-radius: 50%;
-        box-shadow: 0 0 25rem 10rem var(--blue);
+        inset: 0;
+        background: radial-gradient(
+                circle at 15% 50%,
+                rgba(110, 87, 224, 0.4),
+                rgba(255, 255, 255, 0) 25%
+            ),
+            radial-gradient(
+                circle at 85% 30%,
+                rgba(9, 125, 234, 0.4),
+                rgba(255, 255, 255, 0) 25%
+            );
+        width: 100%;
+        height: 100%;
     }
     @media (max-width: 475px) {
         h2.titleHome {

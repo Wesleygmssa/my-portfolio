@@ -1,10 +1,14 @@
+import { useContext } from "react";
+import { PageContext } from "../../contexts/PageContext";
 import { CardSkill } from "../CardSkill";
 import { TitleSection } from "../TitleSection";
 import { SkillsContainer } from "./styles";
 
 export const Skills = () => {
+    const { skillsRef } = useContext(PageContext);
+
     return (
-        <SkillsContainer>
+        <SkillsContainer ref={skillsRef}>
             <div className="contentSkills">
                 <div className="titleSkills">
                     <p>

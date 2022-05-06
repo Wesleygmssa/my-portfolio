@@ -14,7 +14,7 @@ export default createGlobalStyle`
         --container: #242830;
         --border: #202325;
         --boxes: #202024;
-        --header: rgba(21, 23, 24, 0.5);
+        --header: rgba(21, 23, 24, 0.35);
 
         --blue: #097dea;
         --blueHover: #0982f4;
@@ -35,8 +35,21 @@ export default createGlobalStyle`
         font-weight: 500;
         font-family: 'Poppins', sans-serif;
         -webkit-font-smoothing: antialiased;
-        background-color: var(--body);
         color: var(--text-primary);
+    }
+    body {
+        background-color: var(--body);
+        .sr-only {
+            position: absolute;
+            padding: 0;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            clip-path: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     }
     a, button {
         cursor: pointer;

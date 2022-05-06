@@ -7,6 +7,7 @@ export const StatsContainer = styled.section`
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    row-gap: 8rem;
     padding: 6rem 4rem;
     .cardStats {
         align-self: flex-start;

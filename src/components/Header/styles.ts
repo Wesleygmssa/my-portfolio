@@ -1,10 +1,25 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
-    background: var(--header);
+type HeaderContainerProps = {
+    visibleHeader: boolean;
+    isPageTop: boolean;
+};
+
+export const HeaderContainer = styled.header<HeaderContainerProps>`
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: ${(props) =>
+        props.isPageTop ? "transparent" : "var(--header)"};
     -moz-backdrop-filter: blur(1rem);
     backdrop-filter: blur(1rem);
     z-index: 9;
+    transform: translateY(
+        ${(props) =>
+            props.isPageTop ? "0%" : props.visibleHeader ? "0%" : "-100%"}
+    );
+    transition: all 0.25s ease;
 
     .content-header {
         width: min(110rem, 90%);
@@ -16,6 +31,7 @@ export const HeaderContainer = styled.header`
         justify-content: space-between;
         gap: 3rem;
         a.homeLink {
+            background-color: transparent;
             h1 {
                 padding: 0 0.5rem;
                 font-size: 2.2rem;

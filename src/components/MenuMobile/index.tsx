@@ -2,9 +2,12 @@ import { MenuMobileContainer } from "./styles";
 import { IoClose } from "react-icons/io5";
 import { useContext } from "react";
 import { HeaderContext } from "../../contexts/HeaderContext";
+import { PageContext } from "../../contexts/PageContext";
 
 export const MenuMobile = () => {
     const { activeMenu, toggleShowMenu } = useContext(HeaderContext);
+    const { scrollToSection, aboutRef, skillsRef, portfolioRef, contactRef } =
+        useContext(PageContext);
 
     return (
         <MenuMobileContainer activeMenu={activeMenu}>
@@ -13,16 +16,24 @@ export const MenuMobile = () => {
             </button>
             <ul>
                 <li>
-                    <button>Sobre</button>
+                    <button onClick={() => scrollToSection(aboutRef)}>
+                        Sobre
+                    </button>
                 </li>
                 <li>
-                    <button>Habilidades</button>
+                    <button onClick={() => scrollToSection(skillsRef)}>
+                        Habilidades
+                    </button>
                 </li>
                 <li>
-                    <button>Portfolio</button>
+                    <button onClick={() => scrollToSection(portfolioRef)}>
+                        Portfolio
+                    </button>
                 </li>
                 <li>
-                    <button>Contato</button>
+                    <button onClick={() => scrollToSection(contactRef)}>
+                        Contato
+                    </button>
                 </li>
             </ul>
         </MenuMobileContainer>

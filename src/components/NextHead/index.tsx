@@ -1,6 +1,10 @@
 import Head from "next/head";
 
-const NextHead = () => {
+type NextHeadProps = {
+    title: string;
+};
+
+const NextHead = ({ title }: NextHeadProps) => {
     return (
         <Head>
             <meta charSet="UTF-8" />
@@ -16,7 +20,7 @@ const NextHead = () => {
                 type="image/x-icon"
             />
 
-            <title>Portfolio Bruno Guerra - Desenvolvedor Frontend</title>
+            <title>{title}</title>
             <link rel="canonical" href="https://www.bruno-guerra.dev/" />
             <meta name="language" content="pt-BR" />
             <meta httpEquiv="content-language" content="pt-br" />

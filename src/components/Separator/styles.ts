@@ -10,4 +10,8 @@ export const SeparatorContainer = styled.div`
         border-radius: 1rem;
         background-color: var(--border);
     }
+    transition: all 0.2s ease;
+    &:hover {
+        transform: translateY(10%);
+    }
 `;

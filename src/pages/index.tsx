@@ -8,24 +8,46 @@ import { Separator } from "../components/Separator";
 import NextHead from "../components/NextHead";
 import { HeaderProvider } from "../contexts/HeaderContext";
 import { Skills } from "../components/Skills";
+import { Contact } from "../components/Contact";
+import { Footer } from "../components/Footer";
+import { useContext } from "react";
+import { PageContext } from "../contexts/PageContext";
+import { Portfolio } from "../components/Portfolio";
+import { ProfileProvider } from "../contexts/ProfileContext";
 
 const Home: NextPage = () => {
+    const { inputEmailRef } = useContext(PageContext);
+
     return (
         <>
-            <NextHead />
+            <NextHead title="Portfolio Bruno Guerra - Desenvolvedor Frontend" />
             <HeaderProvider>
                 <Header />
                 <MenuMobile />
             </HeaderProvider>
-            <main>
-                <HomePage />
-                <Separator />
-                <Stats />
-                <Separator />
-                <About />
-                <Separator />
-                <Skills />
-            </main>
+            <ProfileProvider>
+                <main>
+                    <input
+                        type="text"
+                        className="sr-only"
+                        value="brunoguerracontact@gmail.com"
+                        disabled
+                        ref={inputEmailRef}
+                    />
+                    <HomePage />
+                    <Separator />
+                    <Stats />
+                    <Separator />
+                    <About />
+                    <Separator />
+                    <Skills />
+                    <Separator />
+                    <Portfolio />
+                    <Separator />
+                    <Contact />
+                    <Footer />
+                </main>
+            </ProfileProvider>
         </>
     );
 };

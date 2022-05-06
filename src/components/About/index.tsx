@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { useContext } from "react";
+import { PageContext } from "../../contexts/PageContext";
 import { TitleSection } from "../TitleSection";
 import { AboutContainer } from "./styles";
 
 export const About = () => {
+    const { aboutRef } = useContext(PageContext);
+
     return (
-        <AboutContainer>
+        <AboutContainer ref={aboutRef}>
             <div className="contentAbout">
                 <div className="textAbout">
                     <TitleSection>Sobre</TitleSection>

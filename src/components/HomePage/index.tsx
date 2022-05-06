@@ -3,8 +3,13 @@ import { RiShareBoxFill } from "react-icons/ri"; /*Share icon*/
 import { BsArrowDownShort } from "react-icons/bs"; /*ArrowDown icon*/
 import { FiCopy } from "react-icons/fi"; /*Copy icon*/
 import Link from "next/link";
+import { useContext } from "react";
+import { PageContext } from "../../contexts/PageContext";
 
 export const HomePage = () => {
+    const { scrollToSection, handleCopyEmailInput, aboutRef } =
+        useContext(PageContext);
+
     return (
         <HomeContainer>
             <h2 className="titleHome">
@@ -12,10 +17,10 @@ export const HomePage = () => {
             </h2>
             <p className="descriptionHome">
                 Desenvolvedor Frontend, Criação de Sites com Design Inteligente,
-                SEO e Acessibilidade
+                SEO e Código Estruturado
             </p>
             <div className="links">
-                <button>
+                <button onClick={() => scrollToSection(aboutRef)}>
                     <span>Conhecer Sobre</span>
                     <BsArrowDownShort size={25} className="iconArrow" />
                 </button>
@@ -29,7 +34,10 @@ export const HomePage = () => {
                 <div className="text-mail">
                     <p>brunoguerracontact@gmail.com</p>
                 </div>
-                <button title="Copiar Endereço de Email">
+                <button
+                    title="Copiar Endereço de Email"
+                    onClick={handleCopyEmailInput}
+                >
                     <FiCopy size={20} className="iconCopy" />
                 </button>
             </div>
