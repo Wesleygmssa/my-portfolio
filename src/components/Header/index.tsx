@@ -59,9 +59,9 @@ export const Header = () => {
                     </ul>
                 </nav>
                 <div className="buttons-header">
-                    <button className="btn-toggleTheme">
+                    {/* <button className="btn-toggleTheme">
                         <IoSunnyOutline size={22} />
-                    </button>
+                    </button> */}
                     <button className="btn-menuMobile" onClick={toggleShowMenu}>
                         <CgMenuRight size={25} />
                     </button>

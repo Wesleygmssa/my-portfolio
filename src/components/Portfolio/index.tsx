@@ -31,7 +31,7 @@ export const Portfolio = () => {
                             description={repository.description}
                             repository={repository.html_url}
                             website={repository.homepage}
-                            imageUrl={`${repository.html_url}/tree/main/printscreen/application.png`}
+                            imageUrl={`https://raw.githubusercontent.com/brunorguerra/${repository.name}/main/printscreen/application.png`}
                             key={index}
                         />
                     ))}
