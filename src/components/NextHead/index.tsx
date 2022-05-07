@@ -26,32 +26,35 @@ const NextHead = ({ title }: NextHeadProps) => {
             <meta httpEquiv="content-language" content="pt-br" />
             <meta
                 name="keywords"
-                content="Bruno Guerra , portfolio Bruno Guerra, dev, bruno guerra dev,programador, programador frontend, desenvolvedor, desenvolvedor frontend, desenvolvimento web, frontend"
+                content="Bruno Guerra, portfolio Bruno Guerra, dev, bruno guerra dev,programador, programador frontend, desenvolvedor, desenvolvedor frontend, desenvolvedor backend, desenvolvimento web, frontend, backend, desenvolvedor react js, desenvolvedor next js, profissional de ti, criação de sites, desenvolvedor de sites"
             />
             <meta
                 name="title"
-                content="Portfolio Bruno Guerra - Desenvolvedor Frontend"
+                content="Portfolio Bruno Guerra - Desenvolvedor Frontend, ReactJS, NextJS, NodeJS"
             />
             <meta
                 name="description"
-                content="Desenvolvedor Web, Websites , WebApp, HTML, CSS, JavaScript, Jquery, NodeJS, SQL, Profissional de TI, Frontend, Desenvolvimento de Sites, Portfolio Web de Bruno Guerra"
+                content="Desenvolvedor Web, Websites , WebApp, HTML, CSS, JavaScript, Jquery, ReactJS, NextJS, NodeJS, MySQL, MongoDB, SQL, Profissional de TI, Frontend, Desenvolvimento de Sites, Portfolio Web de Bruno Guerra"
             />
             <meta name="author" content="Bruno Guerra" />
             <meta name="creator" content="Bruno Guerra" />
             <meta name="copyright" content="© 2022 Bruno Guerra" />
             <meta name="rating" content="general" />
 
-            <meta property="og:url" content="https://www.bruno-guerra.dev" />
+            <meta property="og:url" content="https://www.bruno-guerra.dev/" />
             <meta property="og:type" content="website" />
             <meta
                 property="og:title"
-                content="Portfolio Bruno Guerra - Desenvolvedor Frontend"
+                content="Portfolio Bruno Guerra - Desenvolvedor Frontend, ReactJS, NextJS, NodeJS"
             />
             <meta
                 property="og:description"
-                content="Desenvolvedor Web, Websites , WebApp, HTML, CSS, JavaScript, Jquery, NodeJS, SQL, Profissional de TI, Frontend, Desenvolvimento de Sites"
+                content="Desenvolvedor Web Frontend, Websites , WebApp, HTML, CSS, JavaScript, Jquery, ReactJS, NextJS, NodeJS, MySQL, MongoDB, SQL, Profissional de TI, Frontend, Desenvolvimento de Sites"
             />
-            <meta property="og:image" content="" />
+            <meta
+                property="og:image"
+                content="https://www.bruno-guerra.dev/application.png"
+            />
             <meta
                 property="og:site_name"
                 content="Portfolio Bruno Guerra - Desenvolvedor Frontend"

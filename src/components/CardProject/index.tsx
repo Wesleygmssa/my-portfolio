@@ -1,6 +1,6 @@
 import { CardProjectContainer } from "./styles";
-import { BsArrowBarUp } from "react-icons/bs";
-import { FcOpenedFolder } from "react-icons/fc";
+import { BsArrowBarUp } from "react-icons/bs"; /*ArrowUp icon */
+import { GoFileDirectory } from "react-icons/go"; /*Directory icon */
 import Link from "next/link";
 
 type CardProjectProps = {
@@ -39,17 +39,30 @@ export const CardProject = ({
                     <div className="infos">
                         <p>{description}</p>
                         <div className="links">
-                            <Link href={website ?? repository}>
+                            <Link href={website || repository}>
                                 {website ? (
-                                    <a className="link">Acessar site</a>
+                                    <a
+                                        className="link"
+                                        title="Acessar Site Online"
+                                    >
+                                        Acessar site
+                                    </a>
                                 ) : (
-                                    <a className="link">Acessar Repositório</a>
+                                    <a
+                                        className="link"
+                                        title="Acessar Repositório"
+                                    >
+                                        Acessar Repositório
+                                    </a>
                                 )}
                             </Link>
                             {website && (
                                 <Link href={repository}>
-                                    <a className="link-extra">
-                                        <FcOpenedFolder size={25} />
+                                    <a
+                                        className="link-extra"
+                                        title="Acessar Repositório"
+                                    >
+                                        <GoFileDirectory size={25} />
                                     </a>
                                 </Link>
                             )}

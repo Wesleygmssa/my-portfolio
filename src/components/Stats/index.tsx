@@ -11,7 +11,7 @@ export const Stats = () => {
 
     return (
         <StatsContainer>
-            <div className="cardStats">
+            <div className="cardStats" title="Debugs realizados">
                 <div className="icon">
                     <FaBug size={40} />
                 </div>
@@ -19,7 +19,7 @@ export const Stats = () => {
                 <p>Debugs realizados</p>
             </div>
 
-            <div className="cardStats">
+            <div className="cardStats" title="Projetos criados">
                 <div className="icon">
                     <RiGitRepositoryLine size={40} />
                 </div>
@@ -27,7 +27,7 @@ export const Stats = () => {
                 <p>Projetos</p>
             </div>
 
-            <div className="cardStats">
+            <div className="cardStats" title="Horas de programação">
                 <div className="icon">
                     <MdTimer size={40} />
                 </div>
@@ -35,7 +35,7 @@ export const Stats = () => {
                 <p>Horas</p>
             </div>
 
-            <div className="cardStats">
+            <div className="cardStats" title="Quantidade de ideias surreais">
                 <div className="icon">
                     <MdOutlineLightbulb size={40} />
                 </div>

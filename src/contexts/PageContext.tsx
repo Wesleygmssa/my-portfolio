@@ -58,31 +58,25 @@ export const PageProvider = ({ children }: PageProviderProps) => {
         copy(String(inputEmailRef.current?.value));
     }
 
-    useEffect(
-        function onFirstMount() {
-            function toggleVisibleHeader() {
-                let scrollTop =
-                    window.scrollY || document.documentElement.scrollTop;
+    useEffect(() => {
+        function toggleVisibleHeader() {
+            let scrollTop =
+                window.scrollY || document.documentElement.scrollTop;
 
-                scrollTop > lastScrollTop
-                    ? setIsVisibleHeader(false)
-                    : setIsVisibleHeader(true);
+            scrollTop > lastScrollTop
+                ? setIsVisibleHeader(false)
+                : setIsVisibleHeader(true);
 
-                scrollTop == 0
-                    ? setHandlePageTop(true)
-                    : setHandlePageTop(false);
+            scrollTop == 0 ? setHandlePageTop(true) : setHandlePageTop(false);
 
-                setLastScrollTop(scrollTop);
-            }
+            setLastScrollTop(scrollTop);
+        }
+        addEventListener("scroll", toggleVisibleHeader);
 
-            addEventListener("scroll", toggleVisibleHeader);
-
-            return () => {
-                removeEventListener("scroll", toggleVisibleHeader);
-            };
-        },
-        [lastScrollTop]
-    );
+        return () => {
+            removeEventListener("scroll", toggleVisibleHeader);
+        };
+    }, [lastScrollTop]);
 
     return (
         <PageContext.Provider

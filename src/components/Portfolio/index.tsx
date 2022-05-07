@@ -7,8 +7,12 @@ import { TitleSection } from "../TitleSection";
 import { PortfolioContainer } from "./styles";
 
 export const Portfolio = () => {
-    const { listRepositories, loadMoreRepositories } =
-        useContext(ProfileContext);
+    const {
+        listRepositories,
+        loadMoreRepositories,
+        listRepositoriesCurrentPage,
+        amountRepositories,
+    } = useContext(ProfileContext);
     const { portfolioRef } = useContext(PageContext);
 
     return (
@@ -19,7 +23,9 @@ export const Portfolio = () => {
                     <p>
                         Todos os meus projetos listados no meu{" "}
                         <Link href="https://www.github.com/brunorguerra">
-                            <a>Github</a>
+                            <a title="Ir para o Github de Bruno Guerra">
+                                Github
+                            </a>
                         </Link>
                         , espero que gostem.
                     </p>
@@ -35,12 +41,16 @@ export const Portfolio = () => {
                             key={index}
                         />
                     ))}
-                    <button
-                        className="loadMoreRepositories"
-                        onClick={loadMoreRepositories}
-                    >
-                        <p>Ver Mais</p>
-                    </button>
+                    {listRepositoriesCurrentPage <
+                        Math.ceil(amountRepositories / 5) && (
+                        <button
+                            className="loadMoreRepositories"
+                            onClick={loadMoreRepositories}
+                            title="Visualizar mais repositórios"
+                        >
+                            <p>Ver Mais</p>
+                        </button>
+                    )}
                 </div>
             </div>
         </PortfolioContainer>

@@ -53,7 +53,8 @@ export const About = () => {
                 <div className="image">
                     <img
                         src="./profile.png"
-                        alt="Foto de Perfil Bruno Guerra"
+                        alt="Foto de Perfil do Bruno Guerra"
+                        title="Foto Ilustrativa do Bruno Guerra"
                     />
                 </div>
             </div>

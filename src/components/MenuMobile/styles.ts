@@ -7,24 +7,33 @@ type MenuMobileProps = {
 export const MenuMobileContainer = styled.nav<MenuMobileProps>`
     display: none;
     @media (max-width: 768px) {
-        visibility: ${(props) => (props.activeMenu ? "visible" : "hidden")};
-        opacity: ${(props) => (props.activeMenu ? "1" : "0")};
         display: block;
+
         position: fixed;
         inset: 0;
+        z-index: 10;
+
         width: 100%;
         height: 100vh;
-        z-index: 10;
+
+        opacity: ${(props) => (props.activeMenu ? "1" : "0")};
+        visibility: ${(props) => (props.activeMenu ? "visible" : "hidden")};
         background-color: var(--boxes);
-        transition: all 0.2s ease;
+
+        transform: translateX(${(props) => (props.activeMenu ? "0%" : "-10%")});
+        transition: all 0.45s ease;
         ul {
             width: inherit;
             height: inherit;
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
             gap: 2rem;
+
+            transition: all 0.45s ease;
             li {
                 list-style: none;
                 button {
@@ -35,7 +44,7 @@ export const MenuMobileContainer = styled.nav<MenuMobileProps>`
         }
         button.closeMenu {
             position: absolute;
-            right: ${(props) => (props.activeMenu ? "2rem" : "4rem")};
+            right: 2rem;
             top: 2rem;
             width: 4rem;
             height: 4rem;
@@ -43,7 +52,10 @@ export const MenuMobileContainer = styled.nav<MenuMobileProps>`
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
+            transform: rotate(
+                ${(props) => (props.activeMenu ? "0deg" : "-45deg")}
+            );
+            transition: all 0.45s ease;
         }
     }
 `;

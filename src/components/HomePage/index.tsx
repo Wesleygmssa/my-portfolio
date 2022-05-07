@@ -20,7 +20,10 @@ export const HomePage = () => {
                 SEO e Código Estruturado
             </p>
             <div className="links">
-                <button onClick={() => scrollToSection(aboutRef)}>
+                <button
+                    onClick={() => scrollToSection(aboutRef)}
+                    title="Conhecer mais sobre Bruno Guerra"
+                >
                     <span>Conhecer Sobre</span>
                     <BsArrowDownShort size={25} className="iconArrow" />
                 </button>

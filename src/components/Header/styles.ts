@@ -47,17 +47,30 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
                 gap: 1rem;
                 li {
                     list-style: none;
-                    border-bottom: 0.3rem solid transparent;
                     transition: all 0.2s ease;
+                    position: relative;
                     button {
                         padding: 1rem;
                         color: var(--text-secondary);
-                        transition: all 0.2s ease;
+                        transition: all 0.35s ease;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 0%;
+                        height: 0.3rem;
+                        background: transparent;
+                        transition: all 0.35s ease;
                     }
                     &:hover {
-                        border-bottom-color: var(--blue);
                         button {
                             color: var(--text-primary);
+                        }
+                        &::after {
+                            width: 100%;
+                            background: var(--blueGradient);
                         }
                     }
                 }

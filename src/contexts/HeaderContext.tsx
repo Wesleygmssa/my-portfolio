@@ -16,7 +16,13 @@ export const HeaderProvider = ({ children }: HeaderProviderProps) => {
     const [activeMenu, setActiveMenu] = useState(false);
 
     function toggleShowMenu() {
-        activeMenu ? setActiveMenu(false) : setActiveMenu(true);
+        if (activeMenu) {
+            document.body.style.overflowY = "scroll";
+            setActiveMenu(false);
+        } else {
+            document.body.style.overflowY = "hidden";
+            setActiveMenu(true);
+        }
     }
 
     return (

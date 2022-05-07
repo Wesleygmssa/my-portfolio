@@ -13,30 +13,21 @@ export const Footer = () => {
                 <div className="texts">
                     <p>Todos os Direitos Reservados, © 2022 Bruno Guerra.</p>
                     <div className="socials">
-                        <Link
-                            href={"/"}
-                            title="Ir para o Linkedin de Bruno Guerra"
-                        >
-                            <a>
+                        <Link href={"/"}>
+                            <a title="Ir para o Linkedin de Bruno Guerra">
                                 <img
                                     src="./linkedin.svg"
                                     alt="Logo do Linkedin"
                                 />
                             </a>
                         </Link>
-                        <Link
-                            href={"/"}
-                            title="Ir para o Github de Bruno Guerra"
-                        >
-                            <a>
+                        <Link href={"/"}>
+                            <a title="Ir para o Github de Bruno Guerra">
                                 <img src="./github.svg" alt="Logo do Github" />
                             </a>
                         </Link>
-                        <Link
-                            href={"/"}
-                            title="Ir para o Instagram de Bruno Guerra"
-                        >
-                            <a>
+                        <Link href={"/"}>
+                            <a title="Ir para o Instagram de Bruno Guerra">
                                 <img
                                     src="./instagram.svg"
                                     alt="Logo do Instagram"
@@ -45,7 +36,11 @@ export const Footer = () => {
                         </Link>
                     </div>
                 </div>
-                <button className="btnTopPage" onClick={scrollPageTop}>
+                <button
+                    className="btnTopPage"
+                    onClick={scrollPageTop}
+                    title="Ir para o início da página"
+                >
                     <span>Home</span>
                     <FaLevelUpAlt size={30} />
                 </button>

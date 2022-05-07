@@ -8,6 +8,7 @@ interface ProfileProviderProps {
 type ProfileContextData = {
     amountRepositories: number;
     listRepositories: RepositoriesProps[];
+    listRepositoriesCurrentPage: number;
     loadMoreRepositories: () => void;
 };
 
@@ -29,7 +30,7 @@ export const ProfileProvider = ({ children }: ProfileProviderProps) => {
         useState(1);
 
     function loadMoreRepositories() {
-        listRepositoriesCurrentPage >= 1 &&
+        listRepositoriesCurrentPage <= Math.ceil(amountRepositories / 5) &&
             setListRepositoriesCurrentPage(listRepositoriesCurrentPage + 1);
     }
 
@@ -53,6 +54,7 @@ export const ProfileProvider = ({ children }: ProfileProviderProps) => {
             value={{
                 amountRepositories,
                 listRepositories,
+                listRepositoriesCurrentPage,
                 loadMoreRepositories,
             }}
         >
