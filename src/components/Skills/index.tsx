@@ -45,6 +45,13 @@ export const Skills = () => {
                             typeSkill="Software"
                             key={2}
                         />
+                        <CardSkill
+                            isSkillActive={true}
+                            pathIconSkill="./express.svg"
+                            nameSkill="Express"
+                            typeSkill="Framework NodeJS"
+                            key={14}
+                        />
                     </div>
                 </div>
 

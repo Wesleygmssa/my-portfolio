@@ -20,7 +20,10 @@ const Home: NextPage = () => {
 
     return (
         <>
-            <NextHead title="Portfolio Bruno Guerra - Desenvolvedor Frontend, ReactJS, NextJS, NodeJS" />
+            <NextHead
+                title="Portfolio Bruno Guerra - Desenvolvedor Frontend, ReactJS, NextJS, NodeJS"
+                faviconPath="favicon.svg"
+            />
             <HeaderProvider>
                 <Header />
                 <MenuMobile />

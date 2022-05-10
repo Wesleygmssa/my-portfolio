@@ -30,12 +30,6 @@ class MyDocument extends Document {
             <Html lang="pt-BR">
                 <Head>
                     <link
-                        rel="shortcut icon"
-                        href="favicon.svg"
-                        type="image/x-icon"
-                    />
-
-                    <link
                         rel="preconnect"
                         href="https://fonts.googleapis.com"
                     />

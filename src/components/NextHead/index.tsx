@@ -2,9 +2,10 @@ import Head from "next/head";
 
 type NextHeadProps = {
     title: string;
+    faviconPath: string;
 };
 
-const NextHead = ({ title }: NextHeadProps) => {
+const NextHead = ({ title, faviconPath }: NextHeadProps) => {
     return (
         <Head>
             <meta charSet="UTF-8" />
@@ -16,7 +17,7 @@ const NextHead = ({ title }: NextHeadProps) => {
 
             <link
                 rel="shortcut icon"
-                href="./assets/icons/favicon.svg"
+                href={`./${faviconPath}`}
                 type="image/x-icon"
             />
 

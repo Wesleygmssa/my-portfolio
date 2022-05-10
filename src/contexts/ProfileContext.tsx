@@ -9,6 +9,7 @@ type ProfileContextData = {
     amountRepositories: number;
     listRepositories: RepositoriesProps[];
     listRepositoriesCurrentPage: number;
+    loadingRepositories: boolean;
     loadMoreRepositories: () => void;
 };
 
@@ -28,6 +29,7 @@ export const ProfileProvider = ({ children }: ProfileProviderProps) => {
     >([]);
     const [listRepositoriesCurrentPage, setListRepositoriesCurrentPage] =
         useState(1);
+    const [loadingRepositories, setLoadingRepositories] = useState(false);
 
     function loadMoreRepositories() {
         listRepositoriesCurrentPage <= Math.ceil(amountRepositories / 5) &&
@@ -35,16 +37,20 @@ export const ProfileProvider = ({ children }: ProfileProviderProps) => {
     }
 
     useEffect(() => {
-        async function getAllRepositories() {
-            const userReq = await Api.get("users/brunorguerra");
-            const amountRepos = await userReq.data.public_repos;
-            setAmountRepositories(amountRepos);
-            const reposReq = await Api.get("users/brunorguerra/repos");
-            const listRepos = await reposReq.data.splice(
-                0,
-                5 * listRepositoriesCurrentPage
-            );
-            setListRepositories(listRepos);
+        setLoadingRepositories(true);
+        function getAllRepositories() {
+            setTimeout(async () => {
+                const userReq = await Api.get("users/brunorguerra");
+                const amountRepos = await userReq.data.public_repos;
+                setAmountRepositories(amountRepos);
+                const reposReq = await Api.get("users/brunorguerra/repos");
+                const listRepos = await reposReq.data.splice(
+                    0,
+                    5 * listRepositoriesCurrentPage
+                );
+                setListRepositories(listRepos);
+                setLoadingRepositories(false);
+            }, 1000);
         }
         getAllRepositories();
     }, [listRepositoriesCurrentPage]);
@@ -55,6 +61,7 @@ export const ProfileProvider = ({ children }: ProfileProviderProps) => {
                 amountRepositories,
                 listRepositories,
                 listRepositoriesCurrentPage,
+                loadingRepositories,
                 loadMoreRepositories,
             }}
         >
