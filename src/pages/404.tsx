@@ -37,25 +37,26 @@ export default function Custom404() {
 }
 
 const NotFoundContainer = styled.div`
-    padding: 4rem;
-    width: 100%;
-    min-height: 100vh;
     background: var(--body) url(./background-404.svg) no-repeat center/cover;
 
     position: relative;
-    .overlay,
-    .content {
-        position: absolute;
-        inset: 0;
+    .overlay {
         width: 100%;
         height: 100%;
-    }
-    .overlay {
+        position: absolute;
+        inset: 0;
         background: var(--body);
+        z-index: 1;
         opacity: 0.8;
     }
     .content {
+        position: relative;
         z-index: 2;
+
+        width: 100%;
+        min-height: 100vh;
+
+        padding: 4rem;
 
         display: flex;
         flex-flow: row wrap;
@@ -93,6 +94,16 @@ const NotFoundContainer = styled.div`
                 transition: all 0.2s ease;
                 &:hover {
                     background: var(--blueGradientHover);
+                }
+            }
+
+            @media (max-width: 570px) {
+                p {
+                    max-width: 100%;
+                    text-align: center;
+                }
+                a {
+                    width: 100%;
                 }
             }
         }
