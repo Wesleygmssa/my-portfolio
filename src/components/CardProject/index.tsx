@@ -32,7 +32,10 @@ export const CardProject = ({
                 <div className="description">
                     <div className="title">
                         <h4>{title}</h4>
-                        <button>
+                        <button
+                            name="Visualizar Informações"
+                            title="Visualizar Informações"
+                        >
                             <BsArrowBarUp size={30} />
                         </button>
                     </div>

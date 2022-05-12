@@ -20,7 +20,7 @@ type PageContextData = {
     skillsRef: RefObject<HTMLElement>;
     portfolioRef: RefObject<HTMLElement>;
     contactRef: RefObject<HTMLElement>;
-    inputEmailRef: RefObject<HTMLInputElement>;
+    emailRef: RefObject<HTMLParagraphElement>;
     isVisibleHeader: boolean;
     handlePageTop: boolean;
 };
@@ -32,7 +32,7 @@ export const PageProvider = ({ children }: PageProviderProps) => {
     const skillsRef = useRef<HTMLElement>(null);
     const portfolioRef = useRef<HTMLElement>(null);
     const contactRef = useRef<HTMLElement>(null);
-    const inputEmailRef = useRef<HTMLInputElement>(null);
+    const emailRef = useRef<HTMLParagraphElement>(null);
     const [isVisibleHeader, setIsVisibleHeader] = useState(true);
     const [handlePageTop, setHandlePageTop] = useState(true);
     const [lastScrollTop, setLastScrollTop] = useState(0);
@@ -55,7 +55,7 @@ export const PageProvider = ({ children }: PageProviderProps) => {
     }
 
     function handleCopyEmailInput() {
-        copy(String(inputEmailRef.current?.value));
+        copy(String(emailRef.current?.innerText));
     }
 
     useEffect(() => {
@@ -88,7 +88,7 @@ export const PageProvider = ({ children }: PageProviderProps) => {
                 skillsRef,
                 portfolioRef,
                 contactRef,
-                inputEmailRef,
+                emailRef,
                 isVisibleHeader,
                 handlePageTop,
             }}

@@ -22,15 +22,12 @@ export const About = () => {
                     </p>
                     <div className="linkSocial">
                         <Link href="https://github.com/brunorguerra">
-                            <a href="" title="Ir para o GitHub de Bruno Guerra">
+                            <a title="Ir para o GitHub de Bruno Guerra">
                                 <img src="./github.svg" alt="Logo do Github" />
                             </a>
                         </Link>
                         <Link href="https://www.instagram.com/bruno.bernardees/">
-                            <a
-                                href=""
-                                title="Ir para o Instagram de Bruno Guerra"
-                            >
+                            <a title="Ir para o Instagram de Bruno Guerra">
                                 <img
                                     src="./instagram.svg"
                                     alt="Logo do Instagram"
@@ -38,10 +35,7 @@ export const About = () => {
                             </a>
                         </Link>
                         <Link href="https://www.linkedin.com/in/brunorguerra/">
-                            <a
-                                href=""
-                                title="Ir para o Linkedin de Bruno Guerra"
-                            >
+                            <a title="Ir para o Linkedin de Bruno Guerra">
                                 <img
                                     src="./linkedin.svg"
                                     alt="Logo do Linkedin"

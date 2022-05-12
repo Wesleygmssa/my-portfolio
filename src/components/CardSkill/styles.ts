@@ -42,6 +42,7 @@ export const CardSkillContainer = styled.div<CardSkillContainerProps>`
         border-radius: 0 0 0 0.5rem;
         background-color: var(--blue);
         text-transform: uppercase;
+        font-weight: 700;
         padding: 0.5rem 1.2rem;
     }
     @media (max-width: 350px) {

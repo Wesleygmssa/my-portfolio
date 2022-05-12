@@ -16,8 +16,6 @@ import { Portfolio } from "../components/Portfolio";
 import { ProfileProvider } from "../contexts/ProfileContext";
 
 const Home: NextPage = () => {
-    const { inputEmailRef } = useContext(PageContext);
-
     return (
         <>
             <NextHead
@@ -30,13 +28,6 @@ const Home: NextPage = () => {
             </HeaderProvider>
             <ProfileProvider>
                 <main>
-                    <input
-                        type="text"
-                        className="sr-only"
-                        value="brunoguerracontact@gmail.com"
-                        disabled
-                        ref={inputEmailRef}
-                    />
                     <HomePage />
                     <Separator />
                     <Stats />

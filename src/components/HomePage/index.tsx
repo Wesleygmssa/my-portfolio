@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { PageContext } from "../../contexts/PageContext";
 
 export const HomePage = () => {
-    const { scrollToSection, handleCopyEmailInput, aboutRef } =
+    const { scrollToSection, handleCopyEmailInput, aboutRef, emailRef } =
         useContext(PageContext);
 
     return (
@@ -35,7 +35,7 @@ export const HomePage = () => {
             </div>
             <div className="email">
                 <div className="text-mail">
-                    <p>brunoguerracontact@gmail.com</p>
+                    <p ref={emailRef}>brunoguerracontact@gmail.com</p>
                 </div>
                 <button
                     title="Copiar Endereço de Email"
