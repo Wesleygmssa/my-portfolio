@@ -28,14 +28,14 @@ export const Skills = () => {
                             isSkillActive={true}
                             pathIconSkill="./mongodb.svg"
                             nameSkill="MongoDB"
-                            typeSkill="Banco de Dados"
+                            typeSkill="Banco de Dados Não Relacional"
                             key={0}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./mysql.svg"
                             nameSkill="MySQL"
-                            typeSkill="Banco de Dados"
+                            typeSkill="Banco de Dados Relacional"
                             key={1}
                         />
                         <CardSkill
@@ -51,6 +51,13 @@ export const Skills = () => {
                             nameSkill="Express"
                             typeSkill="Framework NodeJS"
                             key={14}
+                        />
+                        <CardSkill
+                            isSkillActive={true}
+                            pathIconSkill="./sqlite.svg"
+                            nameSkill="SQLite"
+                            typeSkill="Banco de Dados Relacional"
+                            key={15}
                         />
                     </div>
                 </div>
