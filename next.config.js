@@ -7,7 +7,6 @@ const nextConfig = {
         reactRemoveProperties: true,
     },
     experimental: {
-        runtime: "nodejs",
         serverComponents: true,
     },
 };
