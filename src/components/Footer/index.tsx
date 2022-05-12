@@ -13,7 +13,7 @@ export const Footer = () => {
                 <div className="texts">
                     <p>Todos os Direitos Reservados, © 2022 Bruno Guerra.</p>
                     <div className="socials">
-                        <Link href={"/"}>
+                        <Link href={"https://www.linkedin.com/in/brunorguerra/"}>
                             <a title="Ir para o Linkedin de Bruno Guerra">
                                 <img
                                     src="./linkedin.svg"
@@ -21,12 +21,12 @@ export const Footer = () => {
                                 />
                             </a>
                         </Link>
-                        <Link href={"/"}>
+                        <Link href={"https://github.com/brunorguerra"}>
                             <a title="Ir para o Github de Bruno Guerra">
                                 <img src="./github.svg" alt="Logo do Github" />
                             </a>
                         </Link>
-                        <Link href={"/"}>
+                        <Link href={"https://www.instagram.com/bruno.bernardees/"}>
                             <a title="Ir para o Instagram de Bruno Guerra">
                                 <img
                                     src="./instagram.svg"
