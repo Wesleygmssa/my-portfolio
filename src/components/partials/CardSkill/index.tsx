@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import { CardSkillContainer } from "./styles";
 
 type CardSkillProps = {
@@ -13,6 +14,7 @@ export const CardSkill = ({
     nameSkill,
     typeSkill,
 }: CardSkillProps) => {
+    const { t } = useTranslation();
     return (
         <CardSkillContainer skillActive={isSkillActive}>
             <div className="image">
@@ -22,7 +24,7 @@ export const CardSkill = ({
                 <h4>{nameSkill}</h4>
                 <p>{typeSkill}</p>
             </div>
-            <p className="skill-active">Ativo</p>
+            <p className="skill-active">{t("active")}</p>
         </CardSkillContainer>
     );
 };

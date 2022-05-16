@@ -1,10 +1,11 @@
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useContext } from "react";
-import { PageContext } from "../../contexts/PageContext";
-import { ProfileContext } from "../../contexts/ProfileContext";
-import { CardProject } from "../CardProject";
-import Loading from "../Loading";
-import { TitleSection } from "../TitleSection";
+import { PageContext } from "../../../contexts/PageContext";
+import { ProfileContext } from "../../../contexts/ProfileContext";
+import { CardProject } from "../../partials/CardProject";
+import Loading from "../../partials/Loading";
+import { TitleSection } from "../../partials/TitleSection";
 import { PortfolioContainer } from "./styles";
 
 export const Portfolio = () => {
@@ -16,20 +17,19 @@ export const Portfolio = () => {
         loadingRepositories,
     } = useContext(ProfileContext);
     const { portfolioRef } = useContext(PageContext);
+    const { t } = useTranslation();
 
     return (
         <PortfolioContainer ref={portfolioRef}>
             <div className="content">
                 <div className="title-portfolio">
-                    <TitleSection>Portfolio</TitleSection>
+                    <TitleSection>{t("portfolio")}</TitleSection>
                     <p>
-                        Todos os meus projetos listados no meu{" "}
+                        {t("allMyProjectsInitial")}{" "}
                         <Link href="https://www.github.com/brunorguerra">
-                            <a title="Ir para o Github de Bruno Guerra">
-                                Github
-                            </a>
+                            <a title={t("accessGithubTitle")}>Github</a>
                         </Link>
-                        , espero que gostem.
+                        {t("allMyProjectsFinish")}
                     </p>
                 </div>
                 <div className="content-portfolio">
@@ -51,9 +51,9 @@ export const Portfolio = () => {
                             <button
                                 className="loadMoreRepositories"
                                 onClick={loadMoreRepositories}
-                                title="Visualizar mais repositórios"
+                                title={t("seeMoreTitle")}
                             >
-                                <p>Ver Mais</p>
+                                <p>{t("seeMore")}</p>
                             </button>
                         )
                     )}

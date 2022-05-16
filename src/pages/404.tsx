@@ -1,32 +1,38 @@
 import Link from "next/link";
 import styled from "styled-components";
-import NextHead from "../components/NextHead";
+import NextHead from "../components/partials/NextHead";
 import { IoReturnDownBackSharp } from "react-icons/io5";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+
+export async function getStaticProps({ locale }: { locale: string }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ["common", "custom404"])),
+        },
+    };
+}
 
 export default function Custom404() {
+    const { t } = useTranslation();
+
     return (
         <>
-            <NextHead
-                title="Página Não Encontrada"
-                faviconPath="favicon-404.svg"
-            />
+            <NextHead title={t("pageNotFound")} faviconPath="favicon-404.svg" />
             <NotFoundContainer>
                 <div className="overlay"></div>
                 <div className="content">
                     <div className="image">
-                        <img src="./notfound.svg" alt="Página não encontrada" />
+                        <img src="/notfound.svg" alt={t("pageNotFound")} />
                     </div>
 
                     <div className="link">
-                        <h1>Página não encontrada</h1>
-                        <p>
-                            A página que você está procurando pode ter sido
-                            removida, ou está temporariamente indisponível
-                        </p>
+                        <h1>{t("pageNotFound")}</h1>
+                        <p>{t("pageNotFoundDescription")}</p>
                         <Link href={"/"}>
                             <a>
                                 <IoReturnDownBackSharp size={30} />
-                                Voltar para o início
+                                {t("returnPage")}
                             </a>
                         </Link>
                     </div>

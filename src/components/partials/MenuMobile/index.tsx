@@ -1,8 +1,8 @@
 import { MenuMobileContainer } from "./styles";
 import { IoClose } from "react-icons/io5";
 import { useContext } from "react";
-import { HeaderContext } from "../../contexts/HeaderContext";
-import { PageContext } from "../../contexts/PageContext";
+import { HeaderContext } from "../../../contexts/HeaderContext";
+import { PageContext } from "../../../contexts/PageContext";
 
 export const MenuMobile = () => {
     const { activeMenu, toggleShowMenu } = useContext(HeaderContext);

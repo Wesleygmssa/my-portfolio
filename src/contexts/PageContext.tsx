@@ -16,6 +16,7 @@ type PageContextData = {
     scrollToSection: (elementRef: RefObject<HTMLElement>) => void;
     scrollPageTop: () => void;
     handleCopyEmailInput: () => void;
+    toggleModalLanguage: () => void;
     aboutRef: RefObject<HTMLElement>;
     skillsRef: RefObject<HTMLElement>;
     portfolioRef: RefObject<HTMLElement>;
@@ -23,6 +24,7 @@ type PageContextData = {
     emailRef: RefObject<HTMLParagraphElement>;
     isVisibleHeader: boolean;
     handlePageTop: boolean;
+    isActiveModalLang: boolean;
 };
 
 export const PageContext = createContext({} as PageContextData);
@@ -36,6 +38,7 @@ export const PageProvider = ({ children }: PageProviderProps) => {
     const [isVisibleHeader, setIsVisibleHeader] = useState(true);
     const [handlePageTop, setHandlePageTop] = useState(true);
     const [lastScrollTop, setLastScrollTop] = useState(0);
+    const [isActiveModalLang, setIsActiveModalLang] = useState(false);
 
     function scrollToSection(elementRef: RefObject<HTMLElement>) {
         const elementOffsetY = elementRef.current?.offsetTop;
@@ -58,14 +61,23 @@ export const PageProvider = ({ children }: PageProviderProps) => {
         copy(String(emailRef.current?.innerText));
     }
 
+    function toggleModalLanguage() {
+        isActiveModalLang
+            ? setIsActiveModalLang(false)
+            : setIsActiveModalLang(true);
+    }
+
     useEffect(() => {
         function toggleVisibleHeader() {
             let scrollTop =
                 window.scrollY || document.documentElement.scrollTop;
 
-            scrollTop > lastScrollTop
-                ? setIsVisibleHeader(false)
-                : setIsVisibleHeader(true);
+            if (scrollTop > lastScrollTop) {
+                setIsVisibleHeader(false);
+                setIsActiveModalLang(false);
+            } else {
+                setIsVisibleHeader(true);
+            }
 
             scrollTop == 0 ? setHandlePageTop(true) : setHandlePageTop(false);
 
@@ -84,6 +96,7 @@ export const PageProvider = ({ children }: PageProviderProps) => {
                 scrollToSection,
                 scrollPageTop,
                 handleCopyEmailInput,
+                toggleModalLanguage,
                 aboutRef,
                 skillsRef,
                 portfolioRef,
@@ -91,6 +104,7 @@ export const PageProvider = ({ children }: PageProviderProps) => {
                 emailRef,
                 isVisibleHeader,
                 handlePageTop,
+                isActiveModalLang,
             }}
         >
             {children}

@@ -1,19 +1,26 @@
 import type { NextPage } from "next";
-import { Header } from "../components/Header";
-import { MenuMobile } from "../components/MenuMobile";
-import { HomePage } from "../components/HomePage";
-import { Stats } from "../components/Stats";
-import { About } from "../components/About";
-import { Separator } from "../components/Separator";
-import NextHead from "../components/NextHead";
+import { Header } from "../components/partials/Header";
+import { MenuMobile } from "../components/partials/MenuMobile";
+import { HomePage } from "../components/sections/HomePage";
+import { Stats } from "../components/sections/Stats";
+import { About } from "../components/sections/About";
+import { Separator } from "../components/partials/Separator";
+import NextHead from "../components/partials/NextHead";
 import { HeaderProvider } from "../contexts/HeaderContext";
-import { Skills } from "../components/Skills";
-import { Contact } from "../components/Contact";
-import { Footer } from "../components/Footer";
-import { useContext } from "react";
-import { PageContext } from "../contexts/PageContext";
-import { Portfolio } from "../components/Portfolio";
+import { Skills } from "../components/sections/Skills";
+import { Contact } from "../components/sections/Contact";
+import { Footer } from "../components/sections/Footer";
+import { Portfolio } from "../components/sections/Portfolio";
 import { ProfileProvider } from "../contexts/ProfileContext";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }: { locale: string }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ["common", "home"])),
+        },
+    };
+}
 
 const Home: NextPage = () => {
     return (

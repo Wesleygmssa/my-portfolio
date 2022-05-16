@@ -4,31 +4,28 @@ import { BsArrowDownShort } from "react-icons/bs"; /*ArrowDown icon*/
 import { FiCopy } from "react-icons/fi"; /*Copy icon*/
 import Link from "next/link";
 import { useContext } from "react";
-import { PageContext } from "../../contexts/PageContext";
+import { PageContext } from "../../../contexts/PageContext";
+import { useTranslation } from "next-i18next";
 
 export const HomePage = () => {
     const { scrollToSection, handleCopyEmailInput, aboutRef, emailRef } =
         useContext(PageContext);
+    const { t } = useTranslation();
 
     return (
         <HomeContainer>
-            <h2 className="titleHome">
-                Portfólio Profissional de Bruno Guerra
-            </h2>
-            <p className="descriptionHome">
-                Desenvolvedor Frontend, Criação de Sites com Design Inteligente,
-                SEO e Código Estruturado
-            </p>
+            <h2 className="titleHome">{t("professionalPortfolio")}</h2>
+            <p className="descriptionHome">{t("frontendDeveloper")}</p>
             <div className="links">
                 <button
                     onClick={() => scrollToSection(aboutRef)}
-                    title="Conhecer mais sobre Bruno Guerra"
+                    title={t("knowAboutTitle")}
                 >
-                    <span>Conhecer Sobre</span>
+                    <span>{t("knowAbout")}</span>
                     <BsArrowDownShort size={25} className="iconArrow" />
                 </button>
                 <Link href="https://github.com/brunorguerra">
-                    <a title="Ir para o GitHub de Bruno Guerra">
+                    <a title={t("accessGithubTitle")}>
                         <span>GitHub</span> <RiShareBoxFill size={18} />
                     </a>
                 </Link>
@@ -38,7 +35,7 @@ export const HomePage = () => {
                     <p ref={emailRef}>brunoguerracontact@gmail.com</p>
                 </div>
                 <button
-                    title="Copiar Endereço de Email"
+                    title={t("copyEmailTitle")}
                     onClick={handleCopyEmailInput}
                 >
                     <FiCopy size={20} className="iconCopy" />

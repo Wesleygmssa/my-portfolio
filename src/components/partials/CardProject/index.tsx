@@ -2,6 +2,7 @@ import { CardProjectContainer } from "./styles";
 import { BsArrowBarUp } from "react-icons/bs"; /*ArrowUp icon */
 import { GoFileDirectory } from "react-icons/go"; /*Directory icon */
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 type CardProjectProps = {
     title: string;
@@ -18,14 +19,14 @@ export const CardProject = ({
     repository,
     imageUrl,
 }: CardProjectProps) => {
-    console.log(imageUrl);
+    const { t } = useTranslation();
     return (
         <CardProjectContainer>
             <div className="image">
                 {imageUrl ? (
                     <img src={imageUrl} alt={title} />
                 ) : (
-                    <p>Imagem não encontrada</p>
+                    <p>{t("notFoundImage")}</p>
                 )}
             </div>
             <div className="overlay">
@@ -33,8 +34,8 @@ export const CardProject = ({
                     <div className="title">
                         <h4>{title}</h4>
                         <button
-                            name="Visualizar Informações"
-                            title="Visualizar Informações"
+                            name={t("viewInformation")}
+                            title={t("viewInformation")}
                         >
                             <BsArrowBarUp size={30} />
                         </button>
@@ -46,16 +47,16 @@ export const CardProject = ({
                                 {website ? (
                                     <a
                                         className="link"
-                                        title="Acessar Site Online"
+                                        title={t("websiteOnlineTitle")}
                                     >
-                                        Acessar site
+                                        {t("websiteOnline")}
                                     </a>
                                 ) : (
                                     <a
                                         className="link"
-                                        title="Acessar Repositório"
+                                        title={t("accessRepository")}
                                     >
-                                        Acessar Repositório
+                                        {t("accessRepository")}
                                     </a>
                                 )}
                             </Link>
@@ -63,7 +64,7 @@ export const CardProject = ({
                                 <Link href={repository}>
                                     <a
                                         className="link-extra"
-                                        title="Acessar Repositório"
+                                        title={t("accessRepository")}
                                     >
                                         <GoFileDirectory size={25} />
                                     </a>

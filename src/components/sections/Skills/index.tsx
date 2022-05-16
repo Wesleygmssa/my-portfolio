@@ -1,22 +1,20 @@
+import { useTranslation } from "next-i18next";
 import { useContext } from "react";
-import { PageContext } from "../../contexts/PageContext";
-import { CardSkill } from "../CardSkill";
-import { TitleSection } from "../TitleSection";
+import { PageContext } from "../../../contexts/PageContext";
+import { CardSkill } from "../../partials/CardSkill";
+import { TitleSection } from "../../partials/TitleSection";
 import { SkillsContainer } from "./styles";
 
 export const Skills = () => {
     const { skillsRef } = useContext(PageContext);
+    const { t } = useTranslation();
 
     return (
         <SkillsContainer ref={skillsRef}>
             <div className="contentSkills">
                 <div className="titleSkills">
-                    <p>
-                        Todas as tecnologias que utilizei para criação de
-                        websites e webapps, com marcação das tecnologias mais
-                        ativas no momento.
-                    </p>
-                    <TitleSection>Habilidades</TitleSection>
+                    <p>{t("allTechnologies")}</p>
+                    <TitleSection>{t("skills")}</TitleSection>
                 </div>
 
                 <div className="category">
@@ -28,35 +26,35 @@ export const Skills = () => {
                             isSkillActive={true}
                             pathIconSkill="./mongodb.svg"
                             nameSkill="MongoDB"
-                            typeSkill="Banco de Dados Não Relacional"
+                            typeSkill={t("nonRelationalDB")}
                             key={0}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./mysql.svg"
                             nameSkill="MySQL"
-                            typeSkill="Banco de Dados Relacional"
+                            typeSkill={t("relationalDB")}
                             key={1}
+                        />
+                        <CardSkill
+                            isSkillActive={false}
+                            pathIconSkill="./sqlite.svg"
+                            nameSkill="SQLite"
+                            typeSkill={t("relationalDB")}
+                            key={2}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./nodejs.svg"
                             nameSkill="NodeJS"
                             typeSkill="Software"
-                            key={2}
+                            key={14}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./express.svg"
                             nameSkill="Express"
                             typeSkill="Framework NodeJS"
-                            key={14}
-                        />
-                        <CardSkill
-                            isSkillActive={true}
-                            pathIconSkill="./sqlite.svg"
-                            nameSkill="SQLite"
-                            typeSkill="Banco de Dados Relacional"
                             key={15}
                         />
                     </div>
@@ -64,14 +62,14 @@ export const Skills = () => {
 
                 <div className="category">
                     <div className="title-category">
-                        <h4>Frontend Frameworks e Biblioteca</h4>
+                        <h4>Frontend Frameworks e {t("library")}</h4>
                     </div>
                     <div className="category-content">
                         <CardSkill
                             isSkillActive={true}
                             nameSkill="ReactJS"
                             pathIconSkill="./reactjs.svg"
-                            typeSkill="Biblioteca JS"
+                            typeSkill={t("library") + " JS"}
                             key={3}
                         />
                         <CardSkill
@@ -121,35 +119,35 @@ export const Skills = () => {
 
                 <div className="category">
                     <div className="title-category">
-                        <h4>Linguagens</h4>
+                        <h4>{t("languages")}</h4>
                     </div>
                     <div className="category-content">
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./html.svg"
                             nameSkill="HTML"
-                            typeSkill="Linguagem de Marcação"
+                            typeSkill={t("markupLanguage")}
                             key={10}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./css.svg"
                             nameSkill="CSS"
-                            typeSkill="Linguagem de Estilização"
+                            typeSkill={t("stylingLanguage")}
                             key={11}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./javascript.svg"
                             nameSkill="Javascript"
-                            typeSkill="Linguagem de Programação"
+                            typeSkill={t("programmingLanguage")}
                             key={12}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./sql.png"
                             nameSkill="SQL"
-                            typeSkill="Linguagem de consulta padrão"
+                            typeSkill={t("queryLanguage")}
                             key={13}
                         />
                     </div>

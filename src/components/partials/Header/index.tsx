@@ -5,8 +5,10 @@ import { HeaderContainer } from "./styles";
 import { IoSunnyOutline } from "react-icons/io5"; /*Sun icon for light theme */
 import { CgMenuRight } from "react-icons/cg"; /*Menu icon*/
 import { useContext } from "react";
-import { HeaderContext } from "../../contexts/HeaderContext";
-import { PageContext } from "../../contexts/PageContext";
+import { HeaderContext } from "../../../contexts/HeaderContext";
+import { PageContext } from "../../../contexts/PageContext";
+import { useTranslation } from "next-i18next";
+import { SwitchLanguage } from "../SwitchLanguage";
 
 export const Header = () => {
     const { toggleShowMenu } = useContext(HeaderContext);
@@ -19,6 +21,8 @@ export const Header = () => {
         isVisibleHeader,
         handlePageTop,
     } = useContext(PageContext);
+
+    const { t } = useTranslation();
 
     return (
         <HeaderContainer
@@ -36,28 +40,30 @@ export const Header = () => {
                     <ul>
                         <li>
                             <button onClick={() => scrollToSection(aboutRef)}>
-                                Sobre
+                                {t("about")}
                             </button>
                         </li>
                         <li>
                             <button onClick={() => scrollToSection(skillsRef)}>
-                                Habilidades
+                                {t("skills")}
                             </button>
                         </li>
                         <li>
                             <button
                                 onClick={() => scrollToSection(portfolioRef)}
                             >
-                                Portfolio
+                                {t("portfolio")}
                             </button>
                         </li>
                         <li>
                             <button onClick={() => scrollToSection(contactRef)}>
-                                Contato
+                                {t("contact")}
                             </button>
                         </li>
                     </ul>
                 </nav>
+
+                <SwitchLanguage />
                 <div className="buttons-header">
                     {/* <button className="btn-toggleTheme">
                         <IoSunnyOutline size={22} />
