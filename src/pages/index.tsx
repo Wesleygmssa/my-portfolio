@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Header } from "../components/partials/Header";
+import { Header } from "../components/sections/Header";
 import { MenuMobile } from "../components/partials/MenuMobile";
 import { HomePage } from "../components/sections/HomePage";
 import { Stats } from "../components/sections/Stats";

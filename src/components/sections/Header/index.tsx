@@ -2,13 +2,12 @@ import React from "react";
 
 import Link from "next/link";
 import { HeaderContainer } from "./styles";
-import { IoSunnyOutline } from "react-icons/io5"; /*Sun icon for light theme */
 import { CgMenuRight } from "react-icons/cg"; /*Menu icon*/
 import { useContext } from "react";
 import { HeaderContext } from "../../../contexts/HeaderContext";
 import { PageContext } from "../../../contexts/PageContext";
 import { useTranslation } from "next-i18next";
-import { SwitchLanguage } from "../SwitchLanguage";
+import { SwitchLanguage } from "../../partials/SwitchLanguage";
 
 export const Header = () => {
     const { toggleShowMenu } = useContext(HeaderContext);
@@ -65,9 +64,6 @@ export const Header = () => {
 
                 <SwitchLanguage />
                 <div className="buttons-header">
-                    {/* <button className="btn-toggleTheme">
-                        <IoSunnyOutline size={22} />
-                    </button> */}
                     <button className="btn-menuMobile" onClick={toggleShowMenu}>
                         <CgMenuRight size={25} />
                     </button>

@@ -90,20 +90,18 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
                 align-items: center;
                 justify-content: center;
                 transition: all 0.2s ease;
-                &.btn-toggleTheme {
-                    background-color: var(--orange);
-                    color: var(--body);
-
-                    &:hover {
-                        filter: brightness(0.7);
-                    }
-                }
                 &.btn-menuMobile {
                     display: none;
                 }
             }
         }
-        @media (max-width: 768px) {
+    }
+    @media (max-width: 768px) {
+        .content-header {
+            gap: 0;
+            a.homeLink {
+                margin-right: 3rem;
+            }
             nav {
                 display: none;
             }

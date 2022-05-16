@@ -27,9 +27,10 @@ export const SwitchLanguageContainer = styled.div<SwitchLanguageContainerProps>`
         opacity: ${({ isActiveModalLang }) => (isActiveModalLang ? "1" : "0")};
         position: absolute;
         width: 15rem;
-        top: 110%;
-        right: 52%;
+        top: 120%;
+        right: 60%;
         background-color: var(--boxes);
+        border: 0.4rem solid rgba(34, 126, 240, 0.55);
         color: var(--text-primary);
         display: flex;
         flex-direction: column;
@@ -46,5 +47,9 @@ export const SwitchLanguageContainer = styled.div<SwitchLanguageContainerProps>`
                 color: var(--text-primary);
             }
         }
+    }
+    @media (max-width: 768px) {
+        width: 6rem;
+        margin-left: auto;
     }
 `;

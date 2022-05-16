@@ -19,6 +19,7 @@ export const MenuMobileContainer = styled.nav<MenuMobileProps>`
         opacity: ${(props) => (props.activeMenu ? "1" : "0")};
         visibility: ${(props) => (props.activeMenu ? "visible" : "hidden")};
         background-color: var(--boxes);
+        pointer-events: ${(props) => (props.activeMenu ? "auto" : "none")};
 
         transform: translateX(${(props) => (props.activeMenu ? "0%" : "-10%")});
         transition: all 0.45s ease;
