@@ -27,35 +27,35 @@ export const Skills = () => {
                             pathIconSkill="./mongodb.svg"
                             nameSkill="MongoDB"
                             typeSkill={t("nonRelationalDB")}
-                            key={0}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./mysql.svg"
                             nameSkill="MySQL"
                             typeSkill={t("relationalDB")}
-                            key={1}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={false}
                             pathIconSkill="./sqlite.svg"
                             nameSkill="SQLite"
                             typeSkill={t("relationalDB")}
-                            key={2}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./nodejs.svg"
                             nameSkill="NodeJS"
                             typeSkill="Software"
-                            key={14}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./express.svg"
                             nameSkill="Express"
                             typeSkill="Framework NodeJS"
-                            key={15}
+                            key={Math.random()}
                         />
                     </div>
                 </div>
@@ -70,49 +70,63 @@ export const Skills = () => {
                             nameSkill="ReactJS"
                             pathIconSkill="./reactjs.svg"
                             typeSkill={t("library") + " JS"}
-                            key={3}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             nameSkill="NextJS"
                             pathIconSkill="./nextjs.svg"
                             typeSkill="Framework React"
-                            key={4}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={false}
                             nameSkill="JQuery"
                             pathIconSkill="./jquery.svg"
                             typeSkill="Framework JS"
-                            key={5}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={false}
                             nameSkill="Bootstrap"
                             pathIconSkill="./bootstrap.svg"
                             typeSkill="Framework CSS"
-                            key={6}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={false}
                             nameSkill="Sass e Less"
                             pathIconSkill="./sass.svg"
                             typeSkill="Framework CSS"
-                            key={7}
+                            key={Math.random()}
+                        />
+                        <CardSkill
+                            isSkillActive={false}
+                            nameSkill="Tailwind CSS"
+                            pathIconSkill="./tailwind.svg"
+                            typeSkill="Framework CSS"
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             nameSkill="Styled Components"
                             pathIconSkill="./styled-components.png"
                             typeSkill="CSS in JS"
-                            key={8}
+                            key={Math.random()}
+                        />
+                        <CardSkill
+                            isSkillActive={true}
+                            nameSkill="Stitches"
+                            pathIconSkill="./stitches.svg"
+                            typeSkill="CSS in JS"
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             nameSkill="Typescript"
                             pathIconSkill="./typescript.svg"
                             typeSkill="Superset JS"
-                            key={9}
+                            key={Math.random()}
                         />
                     </div>
                 </div>
@@ -127,28 +141,28 @@ export const Skills = () => {
                             pathIconSkill="./html.svg"
                             nameSkill="HTML"
                             typeSkill={t("markupLanguage")}
-                            key={10}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./css.svg"
                             nameSkill="CSS"
                             typeSkill={t("stylingLanguage")}
-                            key={11}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./javascript.svg"
                             nameSkill="Javascript"
                             typeSkill={t("programmingLanguage")}
-                            key={12}
+                            key={Math.random()}
                         />
                         <CardSkill
                             isSkillActive={true}
                             pathIconSkill="./sql.png"
                             nameSkill="SQL"
                             typeSkill={t("queryLanguage")}
-                            key={13}
+                            key={Math.random()}
                         />
                     </div>
                 </div>
