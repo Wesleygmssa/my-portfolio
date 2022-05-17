@@ -3,11 +3,13 @@ import { IoClose } from "react-icons/io5";
 import { useContext } from "react";
 import { HeaderContext } from "../../../contexts/HeaderContext";
 import { PageContext } from "../../../contexts/PageContext";
+import { useTranslation } from "next-i18next";
 
 export const MenuMobile = () => {
     const { activeMenu, toggleShowMenu } = useContext(HeaderContext);
     const { scrollToSection, aboutRef, skillsRef, portfolioRef, contactRef } =
         useContext(PageContext);
+    const { t } = useTranslation();
 
     return (
         <MenuMobileContainer activeMenu={activeMenu}>
@@ -17,22 +19,22 @@ export const MenuMobile = () => {
             <ul>
                 <li>
                     <button onClick={() => scrollToSection(aboutRef)}>
-                        Sobre
+                        {t("about")}
                     </button>
                 </li>
                 <li>
                     <button onClick={() => scrollToSection(skillsRef)}>
-                        Habilidades
+                        {t("skills")}
                     </button>
                 </li>
                 <li>
                     <button onClick={() => scrollToSection(portfolioRef)}>
-                        Portfolio
+                        {t("portfolio")}
                     </button>
                 </li>
                 <li>
                     <button onClick={() => scrollToSection(contactRef)}>
-                        Contato
+                        {t("contact")}
                     </button>
                 </li>
             </ul>
