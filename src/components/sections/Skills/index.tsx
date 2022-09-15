@@ -31,6 +31,13 @@ export const Skills = () => {
                         />
                         <CardSkill
                             isSkillActive={true}
+                            pathIconSkill="./faunadb.svg"
+                            nameSkill="FaunaDB"
+                            typeSkill={t("nonRelationalDB")}
+                            key={Math.random()}
+                        />
+                        <CardSkill
+                            isSkillActive={false}
                             pathIconSkill="./mysql.svg"
                             nameSkill="MySQL"
                             typeSkill={t("relationalDB")}
@@ -51,7 +58,7 @@ export const Skills = () => {
                             key={Math.random()}
                         />
                         <CardSkill
-                            isSkillActive={true}
+                            isSkillActive={false}
                             pathIconSkill="./express.svg"
                             nameSkill="Express"
                             typeSkill="Framework NodeJS"
@@ -101,10 +108,10 @@ export const Skills = () => {
                             key={Math.random()}
                         />
                         <CardSkill
-                            isSkillActive={false}
-                            nameSkill="Tailwind CSS"
-                            pathIconSkill="./tailwind.svg"
-                            typeSkill="Framework CSS"
+                            isSkillActive={true}
+                            nameSkill="ChakraUI"
+                            pathIconSkill="./chakraui.svg"
+                            typeSkill="CSS in JS"
                             key={Math.random()}
                         />
                         <CardSkill
