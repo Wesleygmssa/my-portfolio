@@ -2,11 +2,11 @@ import Link from "next/link";
 import { FooterContainer } from "./styles";
 import { FaLevelUpAlt } from "react-icons/fa";
 import { useContext } from "react";
-import { PageContext } from "../../../contexts/PageContext";
+import { usePageContext } from "../../../contexts/PageContext";
 import { useTranslation } from "next-i18next";
 
 export const Footer = () => {
-    const { scrollPageTop } = useContext(PageContext);
+    const { scrollToPageTop } = usePageContext();
     const { t } = useTranslation();
 
     return (
@@ -44,7 +44,7 @@ export const Footer = () => {
                 </div>
                 <button
                     className="btnTopPage"
-                    onClick={scrollPageTop}
+                    onClick={scrollToPageTop}
                     title={t("homeTitle")}
                 >
                     <span>{t("home")}</span>

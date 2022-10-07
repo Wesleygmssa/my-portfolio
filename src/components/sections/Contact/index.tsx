@@ -6,11 +6,11 @@ import { IoMailOutline } from "react-icons/io5"; /* Email icon */
 import { BsWhatsapp } from "react-icons/bs"; /*Whatsapp icon */
 import Link from "next/link";
 import { useContext } from "react";
-import { PageContext } from "../../../contexts/PageContext";
+import { usePageContext } from "../../../contexts/PageContext";
 import { useTranslation } from "next-i18next";
 
 export const Contact = () => {
-    const { contactRef } = useContext(PageContext);
+    const { contactRef } = usePageContext();
     const { t } = useTranslation();
 
     return (

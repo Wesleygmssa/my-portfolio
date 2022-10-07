@@ -58,7 +58,6 @@ export default createGlobalStyle`
     }
     button {
         background-color: transparent;
-        
     }
     main {
         z-index: 1;

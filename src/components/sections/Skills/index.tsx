@@ -1,12 +1,12 @@
 import { useTranslation } from "next-i18next";
 import { useContext } from "react";
-import { PageContext } from "../../../contexts/PageContext";
+import { usePageContext } from "../../../contexts/PageContext";
 import { CardSkill } from "../../partials/CardSkill";
 import { TitleSection } from "../../partials/TitleSection";
 import { SkillsContainer } from "./styles";
 
 export const Skills = () => {
-    const { skillsRef } = useContext(PageContext);
+    const { skillsRef } = usePageContext();
     const { t } = useTranslation();
 
     return (

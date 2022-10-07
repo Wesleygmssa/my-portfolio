@@ -1,13 +1,17 @@
-import React from "react";
-
 import Link from "next/link";
-import { HeaderContainer } from "./styles";
-import { CgMenuRight } from "react-icons/cg"; /*Menu icon*/
+
+import React from "react";
 import { useContext } from "react";
-import { HeaderContext } from "../../../contexts/HeaderContext";
-import { PageContext } from "../../../contexts/PageContext";
+
 import { useTranslation } from "next-i18next";
-import { SwitchLanguage } from "../../partials/SwitchLanguage";
+
+import { HeaderContainer } from "./styles";
+
+import { HeaderContext } from "../../../contexts/HeaderContext";
+import { usePageContext } from "../../../contexts/PageContext";
+import { ButtonSwitchLang } from "../../partials/ButtonSwitchLang";
+
+import { CgMenuRight } from "react-icons/cg"; /*Menu icon*/
 
 export const Header = () => {
     const { toggleShowMenu } = useContext(HeaderContext);
@@ -18,15 +22,15 @@ export const Header = () => {
         portfolioRef,
         contactRef,
         isVisibleHeader,
-        handlePageTop,
-    } = useContext(PageContext);
+        isPageTop,
+    } = usePageContext();
 
     const { t } = useTranslation();
 
     return (
         <HeaderContainer
-            visibleHeader={isVisibleHeader}
-            isPageTop={handlePageTop}
+            isVisibleHeader={isVisibleHeader}
+            isPageTop={isPageTop}
         >
             <div className="content-header">
                 <Link href={"/"}>
@@ -62,10 +66,10 @@ export const Header = () => {
                     </ul>
                 </nav>
 
-                <SwitchLanguage />
                 <div className="buttons-header">
+                    <ButtonSwitchLang />
                     <button className="btn-menuMobile" onClick={toggleShowMenu}>
-                        <CgMenuRight size={25} />
+                        <CgMenuRight fontSize={28} />
                     </button>
                 </div>
             </div>

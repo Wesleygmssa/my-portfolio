@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useContext } from "react";
-import { PageContext } from "../../../contexts/PageContext";
+import { usePageContext } from "../../../contexts/PageContext";
 import { ProfileContext } from "../../../contexts/ProfileContext";
 import { CardProject } from "../../partials/CardProject";
 import Loading from "../../partials/Loading";
@@ -16,7 +16,7 @@ export const Portfolio = () => {
         amountRepositories,
         loadingRepositories,
     } = useContext(ProfileContext);
-    const { portfolioRef } = useContext(PageContext);
+    const { portfolioRef } = usePageContext();
     const { t } = useTranslation();
 
     return (

@@ -2,6 +2,7 @@ import {
     createContext,
     ReactNode,
     RefObject,
+    useContext,
     useEffect,
     useRef,
     useState,
@@ -14,31 +15,33 @@ interface PageProviderProps {
 
 type PageContextData = {
     scrollToSection: (elementRef: RefObject<HTMLElement>) => void;
-    scrollPageTop: () => void;
+    scrollToPageTop: () => void;
     handleCopyEmailInput: () => void;
-    toggleModalLanguage: () => void;
+    handleIsVisiblePopover: () => void;
     aboutRef: RefObject<HTMLElement>;
     skillsRef: RefObject<HTMLElement>;
     portfolioRef: RefObject<HTMLElement>;
     contactRef: RefObject<HTMLElement>;
     emailRef: RefObject<HTMLParagraphElement>;
     isVisibleHeader: boolean;
-    handlePageTop: boolean;
-    isActiveModalLang: boolean;
+    isVisiblePopover: boolean;
+
+    isPageTop: boolean;
 };
 
-export const PageContext = createContext({} as PageContextData);
+const PageContext = createContext({} as PageContextData);
 
 export const PageProvider = ({ children }: PageProviderProps) => {
+    const [isVisibleHeader, setIsVisibleHeader] = useState(true);
+    const [isVisiblePopover, setIsVisiblePopover] = useState(false);
+    const [isPageTop, setIsPageTop] = useState(true);
+    const [lastScrollTop, setLastScrollTop] = useState(0);
+
     const aboutRef = useRef<HTMLElement>(null);
     const skillsRef = useRef<HTMLElement>(null);
     const portfolioRef = useRef<HTMLElement>(null);
     const contactRef = useRef<HTMLElement>(null);
     const emailRef = useRef<HTMLParagraphElement>(null);
-    const [isVisibleHeader, setIsVisibleHeader] = useState(true);
-    const [handlePageTop, setHandlePageTop] = useState(true);
-    const [lastScrollTop, setLastScrollTop] = useState(0);
-    const [isActiveModalLang, setIsActiveModalLang] = useState(false);
 
     function scrollToSection(elementRef: RefObject<HTMLElement>) {
         const elementOffsetY = elementRef.current?.offsetTop;
@@ -49,7 +52,7 @@ export const PageProvider = ({ children }: PageProviderProps) => {
         });
     }
 
-    function scrollPageTop() {
+    function scrollToPageTop() {
         window.scrollTo({
             top: 0,
             left: 0,
@@ -61,10 +64,8 @@ export const PageProvider = ({ children }: PageProviderProps) => {
         copy(String(emailRef.current?.innerText));
     }
 
-    function toggleModalLanguage() {
-        isActiveModalLang
-            ? setIsActiveModalLang(false)
-            : setIsActiveModalLang(true);
+    function handleIsVisiblePopover() {
+        setIsVisiblePopover(!isVisiblePopover);
     }
 
     useEffect(() => {
@@ -74,12 +75,12 @@ export const PageProvider = ({ children }: PageProviderProps) => {
 
             if (scrollTop > lastScrollTop) {
                 setIsVisibleHeader(false);
-                setIsActiveModalLang(false);
+                setIsVisiblePopover(false);
             } else {
                 setIsVisibleHeader(true);
             }
 
-            scrollTop == 0 ? setHandlePageTop(true) : setHandlePageTop(false);
+            scrollTop == 0 ? setIsPageTop(true) : setIsPageTop(false);
 
             setLastScrollTop(scrollTop);
         }
@@ -88,26 +89,30 @@ export const PageProvider = ({ children }: PageProviderProps) => {
         return () => {
             removeEventListener("scroll", toggleVisibleHeader);
         };
-    }, [lastScrollTop]);
+    }, [lastScrollTop, setIsPageTop, setIsVisibleHeader]);
 
     return (
         <PageContext.Provider
             value={{
                 scrollToSection,
-                scrollPageTop,
+                scrollToPageTop,
                 handleCopyEmailInput,
-                toggleModalLanguage,
+                handleIsVisiblePopover,
                 aboutRef,
                 skillsRef,
                 portfolioRef,
                 contactRef,
                 emailRef,
                 isVisibleHeader,
-                handlePageTop,
-                isActiveModalLang,
+                isVisiblePopover,
+                isPageTop,
             }}
         >
             {children}
         </PageContext.Provider>
     );
+};
+
+export const usePageContext = () => {
+    return useContext(PageContext);
 };

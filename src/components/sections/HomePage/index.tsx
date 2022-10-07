@@ -4,12 +4,12 @@ import { BsArrowDownShort } from "react-icons/bs"; /*ArrowDown icon*/
 import { FiCopy } from "react-icons/fi"; /*Copy icon*/
 import Link from "next/link";
 import { useContext } from "react";
-import { PageContext } from "../../../contexts/PageContext";
+import { usePageContext } from "../../../contexts/PageContext";
 import { useTranslation } from "next-i18next";
 
 export const HomePage = () => {
     const { scrollToSection, handleCopyEmailInput, aboutRef, emailRef } =
-        useContext(PageContext);
+        usePageContext();
     const { t } = useTranslation();
 
     return (

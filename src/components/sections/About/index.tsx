@@ -1,12 +1,12 @@
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useContext } from "react";
-import { PageContext } from "../../../contexts/PageContext";
+import { usePageContext } from "../../../contexts/PageContext";
 import { TitleSection } from "../../partials/TitleSection";
 import { AboutContainer } from "./styles";
 
 export const About = () => {
-    const { aboutRef } = useContext(PageContext);
+    const { aboutRef } = usePageContext();
     const { t } = useTranslation();
 
     return (

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 type HeaderContainerProps = {
-    visibleHeader: boolean;
+    isVisibleHeader: boolean;
     isPageTop: boolean;
 };
 
@@ -17,7 +17,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
     z-index: 9;
     transform: translateY(
         ${(props) =>
-            props.isPageTop ? "0%" : props.visibleHeader ? "0%" : "-100%"}
+            props.isPageTop ? "0%" : props.isVisibleHeader ? "0%" : "-100%"}
     );
     transition: all 0.25s ease;
 
@@ -85,7 +85,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
                 width: 4rem;
                 height: 4rem;
                 border-radius: 1rem;
-                font-size: 0;
+                line-height: 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;

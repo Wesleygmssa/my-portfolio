@@ -1,18 +1,22 @@
 import type { NextPage } from "next";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+import { HeaderProvider } from "../contexts/HeaderContext";
+import { ProfileProvider } from "../contexts/ProfileContext";
+
+import NextHead from "../components/partials/NextHead";
+
 import { Header } from "../components/sections/Header";
 import { MenuMobile } from "../components/partials/MenuMobile";
 import { HomePage } from "../components/sections/HomePage";
 import { Stats } from "../components/sections/Stats";
 import { About } from "../components/sections/About";
 import { Separator } from "../components/partials/Separator";
-import NextHead from "../components/partials/NextHead";
-import { HeaderProvider } from "../contexts/HeaderContext";
 import { Skills } from "../components/sections/Skills";
+import { Portfolio } from "../components/sections/Portfolio";
 import { Contact } from "../components/sections/Contact";
 import { Footer } from "../components/sections/Footer";
-import { Portfolio } from "../components/sections/Portfolio";
-import { ProfileProvider } from "../contexts/ProfileContext";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }: { locale: string }) {
     return {
@@ -29,10 +33,12 @@ const Home: NextPage = () => {
                 title="Portfolio Bruno Guerra - Desenvolvedor Frontend, ReactJS, NextJS, NodeJS"
                 faviconPath="favicon.svg"
             />
+
             <HeaderProvider>
                 <Header />
                 <MenuMobile />
             </HeaderProvider>
+
             <ProfileProvider>
                 <main>
                     <HomePage />
