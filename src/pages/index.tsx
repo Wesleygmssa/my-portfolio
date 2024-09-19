@@ -19,44 +19,44 @@ import { Contact } from "../components/sections/Contact";
 import { Footer } from "../components/sections/Footer";
 
 export async function getStaticProps({ locale }: { locale: string }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ["common", "home"])),
-        },
-    };
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "home"])),
+    },
+  };
 }
 
 const Home: NextPage = () => {
-    return (
-        <>
-            <NextHead
-                title="Portfolio Bruno Guerra - Desenvolvedor Frontend, ReactJS, NextJS, NodeJS"
-                faviconPath="favicon.svg"
-            />
+  return (
+    <>
+      <NextHead
+        title="Portfolio Wesley Guerra - Desenvolvedor Frontend, ReactJS, NextJS, NodeJS"
+        faviconPath="favicon.svg"
+      />
 
-            <HeaderProvider>
-                <Header />
-                <MenuMobile />
-            </HeaderProvider>
+      <HeaderProvider>
+        <Header />
+        <MenuMobile />
+      </HeaderProvider>
 
-            <ProfileProvider>
-                <main>
-                    <HomePage />
-                    <Separator />
-                    <Stats />
-                    <Separator />
-                    <About />
-                    <Separator />
-                    <Skills />
-                    <Separator />
-                    <Portfolio />
-                    <Separator />
-                    <Contact />
-                    <Footer />
-                </main>
-            </ProfileProvider>
-        </>
-    );
+      <ProfileProvider>
+        <main>
+          <HomePage />
+          <Separator />
+          <Stats />
+          <Separator />
+          <About />
+          <Separator />
+          <Skills />
+          <Separator />
+          <Portfolio />
+          <Separator />
+          <Contact />
+          <Footer />
+        </main>
+      </ProfileProvider>
+    </>
+  );
 };
 
 export default Home;
